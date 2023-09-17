@@ -1,0 +1,48 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="AndroidExportProject"
+run/main_scene="res://GameScene.tscn"
+config/features=PackedStringArray("4.1")
+boot_splash/image="res://assets/GB Jam Logo.png"
+config/icon="res://assets/GB Jam Logo.png"
+config/windows_native_icon="res://icon.ico"
+boot_splash/minimum_display_time=2
+run/main_scene.android="res://AndroidPlayerScene.tscn"
+
+[debug]
+
+gdscript/warnings/return_value_discarded=false
+
+[display]
+
+window/size/viewport_width=160
+window/size/viewport_height=144
+window/size/mode=2
+window/stretch/mode="viewport"
+window/handheld/orientation.android=1
+window/size/viewport_width.android=256
+window/size/viewport_height.android=555
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_environment="res://default_env.tres"

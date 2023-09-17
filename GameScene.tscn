@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b38rk8wit5rg4"]
+
+[ext_resource type="Texture2D" uid="uid://cs10y17x1i8rx" path="res://assets/GB Jam Logo.png" id="1_6fa8q"]
+[ext_resource type="Script" path="res://scripts/GameScene.gd" id="1_10ces"]
+
+[node name="GameScene" type="Node2D"]
+script = ExtResource("1_10ces")
+
+[node name="LilDude" type="Sprite2D" parent="."]
+visibility_layer = 32
+z_index = 6
+position = Vector2(80, 70)
+
+[node name="WorldSpace" type="Sprite2D" parent="."]
+show_behind_parent = true
+texture = ExtResource("1_6fa8q")
+centered = false

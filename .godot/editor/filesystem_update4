@@ -1,0 +1,5 @@
+res://default_env.tres
+res://GameScene.tscn
+res://scripts/GameScene.gd
+res://AndroidPlayerScene.tscn
+res://scripts/AndroidPlayerScene.gd
