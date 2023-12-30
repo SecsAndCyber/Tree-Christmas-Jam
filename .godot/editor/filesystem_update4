@@ -1,5 +1,4 @@
 res://default_env.tres
-res://GameScene.tscn
-res://scripts/GameScene.gd
-res://AndroidPlayerScene.tscn
-res://scripts/AndroidPlayerScene.gd
+res://Levels/MenuScreen.tscn
+res://scripts/Bounce.gd
+res://Levels/VictoryScene.tscn

@@ -4,5 +4,11 @@ android/build
 .godot/editor/editor_layout.cfg
 .godot/editor/filesystem_cache8
 .godot/editor/script_editor_cache.cfg
+.godot/editor/favorites
+.godot/shader_cache
+.godot/imported
+.godot/exported
+.godot/editor/*.cfg
 .godot/uid_cache.bin
 .godot/export_credentials.cfg
+*.tmp

@@ -1,0 +1,472 @@
+[gd_scene load_steps=23 format=3 uid="uid://gy85dxq61b0r"]
+
+[ext_resource type="Texture2D" uid="uid://du6u12kid0ero" path="res://assets/Trucks/Truck-empty-1.png" id="1_26x8a"]
+[ext_resource type="Texture2D" uid="uid://t7sp2oq2mo2m" path="res://assets/Trucks/Truck-empty-2.png" id="2_qrx7m"]
+[ext_resource type="Texture2D" uid="uid://2gi0gx7n23ah" path="res://assets/Trucks/Truck-empty-3.png" id="3_1hn1x"]
+[ext_resource type="Texture2D" uid="uid://b2txmrofximat" path="res://assets/Trucks/Truck-empty-4.png" id="4_xlqju"]
+[ext_resource type="Texture2D" uid="uid://stv8vpgejil8" path="res://assets/Trucks/Truck-empty-5.png" id="5_dggl6"]
+[ext_resource type="Texture2D" uid="uid://bn6qdqk8fuus1" path="res://assets/Trucks/Truck-loaded-1.png" id="6_urtkj"]
+[ext_resource type="Texture2D" uid="uid://dwuoh01887dwy" path="res://assets/Trucks/Truck-loaded-2.png" id="7_nowj3"]
+[ext_resource type="Texture2D" uid="uid://bp4kjb4mxc1m6" path="res://assets/Lumberjack/Lumberjack-Right-Idle.png" id="7_xrxy0"]
+[ext_resource type="Texture2D" uid="uid://by6gowybfjh0w" path="res://assets/Trucks/Truck-loaded-3.png" id="8_bn68i"]
+[ext_resource type="Texture2D" uid="uid://lhu87rhby8ka" path="res://assets/Trucks/Truck-loaded-4.png" id="9_r7hdu"]
+[ext_resource type="Texture2D" uid="uid://c32i6wuqmcuat" path="res://assets/Trucks/Truck-loaded-5.png" id="10_ho6fs"]
+[ext_resource type="Script" path="res://scripts/LittleRedTruck.gd" id="11_hekvi"]
+[ext_resource type="AudioStream" uid="uid://b4qox1srdvvng" path="res://assets/Sounds/Retro Vehicle Motor 02.wav" id="13_rf47u"]
+
+[sub_resource type="Animation" id="Animation_xd4pi"]
+resource_name = "DrivingEmpty"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_26x8a"), ExtResource("2_qrx7m"), ExtResource("3_1hn1x"), ExtResource("4_xlqju"), ExtResource("5_dggl6"), ExtResource("1_26x8a"), ExtResource("2_qrx7m"), ExtResource("3_1hn1x"), ExtResource("4_xlqju"), ExtResource("5_dggl6"), ExtResource("1_26x8a"), ExtResource("2_qrx7m"), ExtResource("3_1hn1x"), ExtResource("4_xlqju"), ExtResource("5_dggl6"), ExtResource("1_26x8a"), ExtResource("2_qrx7m"), ExtResource("3_1hn1x"), ExtResource("4_xlqju"), ExtResource("5_dggl6"), ExtResource("1_26x8a"), ExtResource("2_qrx7m"), ExtResource("3_1hn1x"), ExtResource("4_xlqju"), ExtResource("5_dggl6")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["😞"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Driver:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_xrxy0")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer:stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_rf47u")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_y675e"]
+resource_name = "DrivingFull"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.00933015, 0.10933, 0.20933, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.29067, 1.39067, 1.49067, 1.59067, 1.69067, 1.79067, 1.89067, 2, 2.1, 2.2, 2.29067, 2.39067, 2.49067, 2.59067, 2.69067, 2.79067, 2.89067),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("6_urtkj"), ExtResource("7_nowj3"), ExtResource("8_bn68i"), ExtResource("9_r7hdu"), ExtResource("10_ho6fs"), ExtResource("6_urtkj"), ExtResource("7_nowj3"), ExtResource("8_bn68i"), ExtResource("9_r7hdu"), ExtResource("10_ho6fs"), ExtResource("6_urtkj"), ExtResource("7_nowj3"), ExtResource("8_bn68i"), ExtResource("9_r7hdu"), ExtResource("10_ho6fs"), ExtResource("6_urtkj"), ExtResource("7_nowj3"), ExtResource("8_bn68i"), ExtResource("9_r7hdu"), ExtResource("10_ho6fs"), ExtResource("6_urtkj"), ExtResource("7_nowj3"), ExtResource("8_bn68i"), ExtResource("9_r7hdu"), ExtResource("10_ho6fs"), ExtResource("6_urtkj"), ExtResource("7_nowj3"), ExtResource("8_bn68i"), ExtResource("9_r7hdu"), ExtResource("10_ho6fs")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Driver:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_xrxy0")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer:stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_rf47u")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_0eu0j"]
+resource_name = "IdleEmpty"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_26x8a")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Driver:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_8se7y"]
+resource_name = "IdleFull"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_urtkj")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Driver:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_pejl3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_26x8a")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Driver:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1iu53"]
+resource_name = "IdleFullDriver"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_urtkj")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Driver:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_xrxy0")]
+}
+
+[sub_resource type="Animation" id="Animation_dlj6t"]
+resource_name = "IdleEmptyDriver"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_26x8a")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Driver:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_xrxy0")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_j4cup"]
+resource_name = "Entering"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_26x8a"), ExtResource("2_qrx7m"), ExtResource("3_1hn1x"), ExtResource("4_xlqju"), ExtResource("5_dggl6"), ExtResource("1_26x8a"), ExtResource("2_qrx7m"), ExtResource("3_1hn1x"), ExtResource("4_xlqju"), ExtResource("5_dggl6"), ExtResource("1_26x8a"), ExtResource("2_qrx7m"), ExtResource("3_1hn1x"), ExtResource("4_xlqju"), ExtResource("1_26x8a"), ExtResource("2_qrx7m"), ExtResource("3_1hn1x"), ExtResource("4_xlqju"), ExtResource("5_dggl6"), ExtResource("1_26x8a"), ExtResource("2_qrx7m"), ExtResource("3_1hn1x"), ExtResource("4_xlqju"), ExtResource("5_dggl6"), ExtResource("1_26x8a"), ExtResource("2_qrx7m"), ExtResource("3_1hn1x"), ExtResource("4_xlqju"), ExtResource("5_dggl6"), ExtResource("1_26x8a"), ExtResource("2_qrx7m"), ExtResource("3_1hn1x"), ExtResource("4_xlqju"), ExtResource("1_26x8a"), ExtResource("2_qrx7m"), ExtResource("3_1hn1x"), ExtResource("4_xlqju"), ExtResource("5_dggl6"), ExtResource("1_26x8a"), ExtResource("2_qrx7m"), ExtResource("3_1hn1x"), ExtResource("4_xlqju"), ExtResource("5_dggl6"), ExtResource("1_26x8a"), ExtResource("2_qrx7m"), ExtResource("3_1hn1x"), ExtResource("4_xlqju"), ExtResource("5_dggl6"), ExtResource("1_26x8a"), ExtResource("2_qrx7m"), ExtResource("3_1hn1x"), ExtResource("4_xlqju"), ExtResource("1_26x8a"), ExtResource("2_qrx7m"), ExtResource("3_1hn1x"), ExtResource("4_xlqju"), ExtResource("5_dggl6")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Driver:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_xrxy0")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer:stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_rf47u")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wavtf"]
+_data = {
+"DrivingEmpty": SubResource("Animation_xd4pi"),
+"DrivingFull": SubResource("Animation_y675e"),
+"Entering": SubResource("Animation_j4cup"),
+"IdleEmpty": SubResource("Animation_0eu0j"),
+"IdleEmptyDriver": SubResource("Animation_dlj6t"),
+"IdleFull": SubResource("Animation_8se7y"),
+"IdleFullDriver": SubResource("Animation_1iu53"),
+"RESET": SubResource("Animation_pejl3")
+}
+
+[node name="LittleRedTruck" type="Sprite2D"]
+z_index = 10
+texture_filter = 1
+texture = ExtResource("1_26x8a")
+script = ExtResource("11_hekvi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wavtf")
+}
+autoplay = "Entering"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 12.0
+offset_top = -14.0
+offset_right = 34.0
+offset_bottom = 9.0
+scale = Vector2(0.75, 0.75)
+
+[node name="Driver" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4, -1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_rf47u")
+volume_db = -15.0

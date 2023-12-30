@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://0r1um0t3qec2"]
+
+[ext_resource type="AudioStream" uid="uid://cl8tdnxo7caa3" path="res://assets/Sounds/4-Dark Fantasy Studio- Celebrate life (seamless).wav" id="1_grst2"]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_grst2")
+volume_db = -20.0
+autoplay = true

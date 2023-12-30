@@ -1,0 +1,143 @@
+[gd_scene load_steps=20 format=3 uid="uid://bdawgnyv8f3r2"]
+
+[ext_resource type="Script" path="res://scripts/Bounce.gd" id="1_47pyn"]
+[ext_resource type="Texture2D" uid="uid://fwt6mdmtiw27" path="res://assets/Lumberjack/Lumberjack-Front-Idle.png" id="2_xapb7"]
+[ext_resource type="Texture2D" uid="uid://2sxml24q063d" path="res://assets/Lumberjack/Lumberjack-Front-RF.png" id="3_edry8"]
+[ext_resource type="Texture2D" uid="uid://bi015ya5qusqk" path="res://assets/Lumberjack/Lumberjack-Front-LF.png" id="4_ph3jo"]
+[ext_resource type="Texture2D" uid="uid://c7fybqi2e7jxj" path="res://assets/Lumberjack/Lumberjack-Back-LF.png" id="5_iuh5s"]
+[ext_resource type="Texture2D" uid="uid://bsrvfiyhv7gh" path="res://assets/Lumberjack/Lumberjack-Back-RF.png" id="6_udvji"]
+[ext_resource type="Texture2D" uid="uid://dnv6fr57c47e1" path="res://assets/Lumberjack/Lumberjack-TreeDrag-RF.png" id="7_yn0lj"]
+[ext_resource type="Texture2D" uid="uid://t7ngyhmudsmt" path="res://assets/Lumberjack/Lumberjack-TreeDrag-LF.png" id="8_3a4uk"]
+[ext_resource type="Texture2D" uid="uid://bytdc8ld6u15n" path="res://assets/Lumberjack/Lumberjack-Chopping-Up-3.png" id="9_n1gdo"]
+[ext_resource type="Texture2D" uid="uid://dc2ketyyjgjll" path="res://assets/Lumberjack/Lumberjack-Chopping-Up-2.png" id="10_py7we"]
+[ext_resource type="Texture2D" uid="uid://8h1t2b3v0nyb" path="res://assets/Lumberjack/Lumberjack-Chopping-Up-1.png" id="11_yrwfe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xlqi7"]
+radius = 8.0
+
+[sub_resource type="Animation" id="Animation_r4owe"]
+resource_name = "Idle-Down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_xapb7")]
+}
+
+[sub_resource type="Animation" id="Animation_k54g1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_y44rs"]
+resource_name = "Walking-Down"
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_edry8"), ExtResource("4_ph3jo")]
+}
+
+[sub_resource type="Animation" id="Animation_fqpi8"]
+resource_name = "Walking-Up"
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_iuh5s"), ExtResource("6_udvji")]
+}
+
+[sub_resource type="Animation" id="Animation_thdr0"]
+resource_name = "Dragging-Down"
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("7_yn0lj"), ExtResource("8_3a4uk")]
+}
+
+[sub_resource type="Animation" id="Animation_8lkhm"]
+resource_name = "Chopping-Up"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("9_n1gdo"), ExtResource("10_py7we"), ExtResource("11_yrwfe"), ExtResource("10_py7we"), ExtResource("9_n1gdo"), ExtResource("10_py7we"), ExtResource("11_yrwfe"), ExtResource("10_py7we"), ExtResource("9_n1gdo"), ExtResource("10_py7we"), ExtResource("11_yrwfe"), ExtResource("10_py7we")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jc0y6"]
+_data = {
+"Chopping-Up": SubResource("Animation_8lkhm"),
+"Dragging-Down": SubResource("Animation_thdr0"),
+"Idle-Down": SubResource("Animation_r4owe"),
+"RESET": SubResource("Animation_k54g1"),
+"Walking-Down": SubResource("Animation_y44rs"),
+"Walking-Up": SubResource("Animation_fqpi8")
+}
+
+[node name="Bounce" type="RigidBody2D"]
+z_index = 2
+collision_layer = 2
+collision_mask = 7
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_47pyn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_xlqi7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jc0y6")
+}

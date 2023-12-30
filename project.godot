@@ -10,14 +10,15 @@ config_version=5
 
 [application]
 
-config/name="AndroidExportProject"
-run/main_scene="res://GameScene.tscn"
-config/features=PackedStringArray("4.1")
-boot_splash/image="res://assets/GB Jam Logo.png"
-config/icon="res://assets/GB Jam Logo.png"
-config/windows_native_icon="res://icon.ico"
-boot_splash/minimum_display_time=2
-run/main_scene.android="res://AndroidPlayerScene.tscn"
+config/name="ChristmasTreeHarvest"
+run/main_scene="res://Levels/MenuScreen.tscn"
+config/features=PackedStringArray("4.2")
+boot_splash/image="res://assets/LumberjackSplash.png"
+config/icon="res://assets/Lumberjack/Lumberjack-Front-Idle.png"
+
+[autoload]
+
+BackgroundMusic="*res://Levels/BackgroundMusic.tscn"
 
 [debug]
 
@@ -26,12 +27,10 @@ gdscript/warnings/return_value_discarded=false
 [display]
 
 window/size/viewport_width=160
-window/size/viewport_height=144
+window/size/viewport_height=192
 window/size/mode=2
 window/stretch/mode="viewport"
 window/handheld/orientation.android=1
-window/size/viewport_width.android=256
-window/size/viewport_height.android=555
 
 [gui]
 

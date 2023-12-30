@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddmpm8duesejd"]
+
+[ext_resource type="Script" path="res://scripts/LumberjackActor.gd" id="1_dmhbe"]
+
+[node name="LumberjackActor" type="RigidBody2D"]
+script = ExtResource("1_dmhbe")

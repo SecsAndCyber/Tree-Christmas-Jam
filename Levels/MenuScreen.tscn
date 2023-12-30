@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxobia6ha8ach"]
+
+[ext_resource type="Script" path="res://scripts/MenuScreen.gd" id="1_s1cc4"]
+[ext_resource type="PackedScene" uid="uid://bxrkod6lchfyv" path="res://Levels/Level-1-1.tscn" id="2_dp67g"]
+[ext_resource type="Texture2D" uid="uid://ripol6jximax" path="res://assets/LumberjackSplash.png" id="2_vqkl1"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_s1cc4")
+next_level = ExtResource("2_dp67g")
+
+[node name="LumberjackSplash" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(88, 98)
+scale = Vector2(0.173359, 0.173359)
+texture = ExtResource("2_vqkl1")
+
+[node name="Panel" type="Panel" parent="."]
+offset_top = 9.0
+offset_right = 87.0
+offset_bottom = 82.0
+
+[node name="Label" type="Label" parent="Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_top = -2.0
+offset_right = 83.0
+offset_bottom = 73.0
+text = "Christmas
+Tree
+Harvest"
+horizontal_alignment = 2
+
+[node name="Panel2" type="Panel" parent="."]
+offset_top = 148.0
+offset_right = 160.0
+offset_bottom = 171.0
+
+[node name="Label" type="Label" parent="Panel2"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 30.0
+offset_top = -2.0
+offset_right = 131.0
+offset_bottom = 73.0
+text = "Click To Start"
+horizontal_alignment = 2

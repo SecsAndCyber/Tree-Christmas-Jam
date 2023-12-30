@@ -1,0 +1,42 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "GroundPath.tsx": {
+            "dynamicWrapping": false
+        },
+        "TreeMap.tmx": {
+            "scale": 1.5496875,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 240.371042548901,
+                "y": 160.03226456946965
+            }
+        },
+        "Trees.tsx": {
+            "dynamicWrapping": true
+        }
+    },
+    "last.imagePath": "D:/development/godot/Tree-Christmas-Jam/assets/Trees",
+    "map.height": 6,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 6,
+    "openFiles": [
+    ],
+    "project": "Trees.tiled-project",
+    "recentFiles": [
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    },
+    "tileset.type": 0
+}

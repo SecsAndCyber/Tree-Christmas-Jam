@@ -1,0 +1,125 @@
+[gd_scene load_steps=9 format=3 uid="uid://dpgrckiewwy02"]
+
+[ext_resource type="Script" path="res://scripts/VictoryScene.gd" id="1_d6nb8"]
+[ext_resource type="Texture2D" uid="uid://13utfmubwjbl" path="res://assets/Trucks/DrivingAway.png" id="2_45qjc"]
+[ext_resource type="AudioStream" uid="uid://b4qox1srdvvng" path="res://assets/Sounds/Retro Vehicle Motor 02.wav" id="2_qlyxb"]
+[ext_resource type="TileSet" uid="uid://dxjgyud2rxs7x" path="res://assets/Trees/TreesTileSet.tres" id="3_86fxb"]
+[ext_resource type="Script" path="res://scripts/TreeMap.gd" id="4_2qqlu"]
+
+[sub_resource type="Animation" id="Animation_jbiyd"]
+resource_name = "Drive-Off-To-Victory"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1, 2.2, 3.2, 4.2, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(81, 187), Vector2(109, 108), Vector2(69, 61), Vector2(103, 33), Vector2(73, -4), Vector2(115, -36)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_m6e4c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(81, 187)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h1ktt"]
+_data = {
+"Drive-Off-To-Victory": SubResource("Animation_jbiyd"),
+"RESET": SubResource("Animation_m6e4c")
+}
+
+[node name="VictoryScene" type="Node2D"]
+script = ExtResource("1_d6nb8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 5
+y_sort_enabled = true
+position = Vector2(81, 187)
+texture = ExtResource("2_45qjc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_h1ktt")
+}
+autoplay = "Drive-Off-To-Victory"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qlyxb")
+volume_db = -20.0
+
+[node name="TreeMap" type="TileMap" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+tile_set = ExtResource("3_86fxb")
+format = 2
+layer_0/name = "Trees"
+layer_0/z_index = 1
+layer_0/tile_data = PackedInt32Array(196608, 131078, 0, 131075, 65542, 0, 0, 6, 0, 3, 65542, 1, 131072, 131078, 0)
+layer_1/name = "Ground"
+layer_1/tile_data = PackedInt32Array(196608, 65542, 4, 1, 65542, 4, 65537, 65542, 4, 131073, 65542, 4, 131074, 65542, 4, 196610, 65542, 4, 0, 65542, 4, 65536, 65542, 4, 131072, 65542, 4, 196609, 65542, 4, 2, 65542, 4, 65538, 65542, 4, 3, 65542, 4, 65539, 65542, 4, 131075, 65542, 4, 196611, 65542, 4)
+script = ExtResource("4_2qqlu")
+skip_triggers = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 4.0
+offset_top = 48.0
+offset_right = 171.0
+offset_bottom = 175.0
+text = "Congratulations!
+
+Merry
+Christmas
+Jam!"
+horizontal_alignment = 1

@@ -1,0 +1,268 @@
+[gd_scene load_steps=22 format=3 uid="uid://bdawgnyv8f3r2"]
+
+[ext_resource type="Script" path="res://scripts/Bounce.gd" id="1_47pyn"]
+[ext_resource type="Texture2D" uid="uid://fwt6mdmtiw27" path="res://assets/Lumberjack/Lumberjack-Front-Idle.png" id="2_xapb7"]
+[ext_resource type="Texture2D" uid="uid://2sxml24q063d" path="res://assets/Lumberjack/Lumberjack-Front-RF.png" id="3_edry8"]
+[ext_resource type="Texture2D" uid="uid://bi015ya5qusqk" path="res://assets/Lumberjack/Lumberjack-Front-LF.png" id="4_ph3jo"]
+[ext_resource type="Texture2D" uid="uid://c7fybqi2e7jxj" path="res://assets/Lumberjack/Lumberjack-Back-LF.png" id="5_iuh5s"]
+[ext_resource type="Texture2D" uid="uid://bsrvfiyhv7gh" path="res://assets/Lumberjack/Lumberjack-Back-RF.png" id="6_udvji"]
+[ext_resource type="AudioStream" uid="uid://cgnl2cfki3bnt" path="res://assets/Sounds/Retro FootStep 03.wav" id="7_pkah6"]
+[ext_resource type="Texture2D" uid="uid://dnv6fr57c47e1" path="res://assets/Lumberjack/Lumberjack-TreeDrag-RF.png" id="7_yn0lj"]
+[ext_resource type="Texture2D" uid="uid://t7ngyhmudsmt" path="res://assets/Lumberjack/Lumberjack-TreeDrag-LF.png" id="8_3a4uk"]
+[ext_resource type="Texture2D" uid="uid://bytdc8ld6u15n" path="res://assets/Lumberjack/Lumberjack-Chopping-Up-3.png" id="9_n1gdo"]
+[ext_resource type="Texture2D" uid="uid://dc2ketyyjgjll" path="res://assets/Lumberjack/Lumberjack-Chopping-Up-2.png" id="10_py7we"]
+[ext_resource type="Texture2D" uid="uid://8h1t2b3v0nyb" path="res://assets/Lumberjack/Lumberjack-Chopping-Up-1.png" id="11_yrwfe"]
+[ext_resource type="AudioStream" uid="uid://n11k64eb0ail" path="res://assets/Sounds/Retro Impact Punch 07.wav" id="14_l4k8e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xlqi7"]
+radius = 8.0
+
+[sub_resource type="Animation" id="Animation_r4owe"]
+resource_name = "Idle-Down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_xapb7")]
+}
+
+[sub_resource type="Animation" id="Animation_k54g1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_pkah6")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_y44rs"]
+resource_name = "Walking-Down"
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_edry8"), ExtResource("4_ph3jo")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_pkah6")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="Animation" id="Animation_fqpi8"]
+resource_name = "Walking-Up"
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_iuh5s"), ExtResource("6_udvji")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_pkah6")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="Animation" id="Animation_thdr0"]
+resource_name = "Dragging-Down"
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("7_yn0lj"), ExtResource("8_3a4uk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_pkah6")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="Animation" id="Animation_8lkhm"]
+resource_name = "Chopping-Up"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("9_n1gdo"), ExtResource("10_py7we"), ExtResource("11_yrwfe"), ExtResource("10_py7we"), ExtResource("9_n1gdo"), ExtResource("10_py7we"), ExtResource("11_yrwfe"), ExtResource("10_py7we"), ExtResource("9_n1gdo"), ExtResource("10_py7we"), ExtResource("11_yrwfe"), ExtResource("10_py7we")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("14_l4k8e")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.8, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jc0y6"]
+_data = {
+"Chopping-Up": SubResource("Animation_8lkhm"),
+"Dragging-Down": SubResource("Animation_thdr0"),
+"Idle-Down": SubResource("Animation_r4owe"),
+"RESET": SubResource("Animation_k54g1"),
+"Walking-Down": SubResource("Animation_y44rs"),
+"Walking-Up": SubResource("Animation_fqpi8")
+}
+
+[node name="Bounce" type="RigidBody2D"]
+z_index = 2
+collision_layer = 2
+collision_mask = 7
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_47pyn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_xlqi7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jc0y6")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_pkah6")

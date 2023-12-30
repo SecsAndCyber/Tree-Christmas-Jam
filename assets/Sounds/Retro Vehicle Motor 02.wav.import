@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b4qox1srdvvng"
+path="res://.godot/imported/Retro Vehicle Motor 02.wav-5a507120016c7b6612f0fb59933d432f.sample"
+
+[deps]
+
+source_file="res://assets/Sounds/Retro Vehicle Motor 02.wav"
+dest_files=["res://.godot/imported/Retro Vehicle Motor 02.wav-5a507120016c7b6612f0fb59933d432f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://1rbedvk1jeo4"]
+
+[ext_resource type="Script" path="res://scripts/Paddle.gd" id="1_in6hj"]
+[ext_resource type="Texture2D" uid="uid://cqfedimxaxwvf" path="res://assets/Lumberjack/Lumberjack-Blocking-Up-RF.png" id="2_cmeo6"]
+[ext_resource type="Texture2D" uid="uid://bej30k2r2uw7k" path="res://assets/Lumberjack/Lumberjack-Blocking-Up-Idle.png" id="2_qmjvn"]
+[ext_resource type="Texture2D" uid="uid://bi015ya5qusqk" path="res://assets/Lumberjack/Lumberjack-Front-LF.png" id="3_js8oc"]
+[ext_resource type="Texture2D" uid="uid://2sxml24q063d" path="res://assets/Lumberjack/Lumberjack-Front-RF.png" id="4_p6sgm"]
+[ext_resource type="Texture2D" uid="uid://cqtkoab8rqv8q" path="res://assets/Lumberjack/Lumberjack-Blocking-Up-LF.png" id="6_yjcy4"]
+
+[sub_resource type="Animation" id="Animation_fd514"]
+resource_name = "Blocking-Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_qmjvn")]
+}
+
+[sub_resource type="Animation" id="Animation_4iu07"]
+resource_name = "Walking-To-Truck"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_js8oc"), ExtResource("4_p6sgm")]
+}
+
+[sub_resource type="Animation" id="Animation_lv5vj"]
+resource_name = "Blocking-Walk"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("6_yjcy4"), ExtResource("2_cmeo6"), ExtResource("6_yjcy4"), ExtResource("2_cmeo6")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ea0xq"]
+_data = {
+"Blocking-Idle": SubResource("Animation_fd514"),
+"Blocking-Walk": SubResource("Animation_lv5vj"),
+"Walking-To-Truck": SubResource("Animation_4iu07")
+}
+
+[node name="Paddle" type="RigidBody2D"]
+gravity_scale = 0.0
+can_sleep = false
+lock_rotation = true
+script = ExtResource("1_in6hj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, -8, -4, -4, -7, 4, -7, 8, -4)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-4.76837e-07, -1.7053e-12)
+texture = ExtResource("6_yjcy4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ea0xq")
+}
