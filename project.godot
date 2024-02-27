@@ -14,7 +14,7 @@ config/name="ChristmasTreeHarvest"
 run/main_scene="res://Levels/MenuScreen.tscn"
 config/features=PackedStringArray("4.2")
 boot_splash/image="res://assets/LumberjackSplash.png"
-config/icon="res://assets/Lumberjack/Lumberjack-Front-Idle.png"
+config/icon="res://Store Assets/StoreLogo.png"
 
 [autoload]
 

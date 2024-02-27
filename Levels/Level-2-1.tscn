@@ -1,0 +1,87 @@
+[gd_scene load_steps=12 format=3 uid="uid://dbrie6p3s5bal"]
+
+[ext_resource type="Script" path="res://scripts/GameScene.gd" id="1_vfl8t"]
+[ext_resource type="PackedScene" uid="uid://b8wojf5k4843c" path="res://Levels/Level-2-2.tscn" id="2_d0b38"]
+[ext_resource type="TileSet" uid="uid://dxjgyud2rxs7x" path="res://assets/Trees/TreesTileSet.tres" id="3_wbv7h"]
+[ext_resource type="Script" path="res://scripts/TreeMap.gd" id="4_funon"]
+[ext_resource type="PackedScene" uid="uid://bdawgnyv8f3r2" path="res://Actors/Bounce.tscn" id="5_60kh8"]
+[ext_resource type="PackedScene" uid="uid://1rbedvk1jeo4" path="res://Actors/Paddle.tscn" id="6_exu6s"]
+[ext_resource type="PackedScene" uid="uid://gy85dxq61b0r" path="res://Actors/little_red_truck.tscn" id="7_ff3fb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tt1wn"]
+size = Vector2(500, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ckrt"]
+size = Vector2(500, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cooa0"]
+size = Vector2(1, 300)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_suj45"]
+size = Vector2(1, 300)
+
+[node name="Level-2-1" type="Node2D"]
+script = ExtResource("1_vfl8t")
+next_level = ExtResource("2_d0b38")
+
+[node name="TreeMap" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = ExtResource("3_wbv7h")
+format = 2
+layer_0/name = "Trees"
+layer_0/z_index = 1
+layer_0/tile_data = PackedInt32Array(0, 65542, 0, 65536, 65542, 0, 131072, 6, 0, 1, 6, 0, 65537, 131078, 0, 131073, 6, 0, 2, 6, 0, 65538, 6, 0, 131074, 65542, 0, 3, 131078, 0, 65539, 65542, 0, 131075, 65542, 1, 4, 6, 0, 65540, 65542, 0, 131076, 6, 0, 5, 6, 0, 65541, 6, 0, 131077, 65542, 0, 6, 6, 0, 65542, 131078, 0, 131078, 6, 0, 7, 6, 0, 65543, 6, 1, 131079, 65542, 0, 8, 65542, 0, 65544, 6, 0, 131080, 6, 0, 9, 131078, 0, 65545, 6, 0, 131081, 65542, 0, 196608, 6, 1, 262144, 131078, 1, 196609, 65542, 1, 262145, 6, 1, 196610, 131078, 1, 262146, 65542, 1, 196611, 65542, 1, 262147, 65542, 1, 196612, 6, 1, 262148, 6, 1, 196613, 65542, 1, 262149, 131078, 1, 196614, 131078, 1, 262150, 131078, 1, 196615, 131078, 1, 262151, 6, 1, 196616, 65542, 1, 262152, 131078, 1, 196617, 65542, 1, 262153, 131078, 1)
+layer_1/name = "Ground"
+layer_1/tile_data = PackedInt32Array(0, 262150, 4, 1, 327686, 4, 2, 458758, 4, 3, 458758, 4, 4, 458758, 4, 5, 458758, 4, 6, 458758, 4, 7, 458758, 4, 8, 196614, 4, 458752, 262150, 3, 393216, 458758, 4, 327680, 458758, 4, 196608, 458758, 4, 131072, 458758, 4, 65536, 262150, 5, 524295, 262150, 5, 458759, 262150, 3, 393223, 458758, 4, 327687, 458758, 4, 196615, 458758, 4, 131079, 458758, 4, 65543, 458758, 4, 65542, 458758, 4, 65541, 458758, 4, 65540, 458758, 4, 65539, 458758, 4, 65538, 458758, 4, 65537, 327686, 5, 131073, 458758, 4, 196609, 458758, 4, 327681, 458758, 4, 393217, 458758, 4, 458753, 262150, 3, 524289, 262150, 5, 524290, 262150, 5, 458754, 262150, 3, 393218, 458758, 4, 327682, 196614, 5, 196610, 196614, 4, 131074, 196614, 3, 131075, 327686, 3, 196611, 327686, 4, 327683, 327686, 5, 393219, 458758, 4, 458755, 262150, 3, 524291, 262150, 5, 524292, 262150, 5, 458756, 262150, 3, 393220, 458758, 4, 327684, 458758, 4, 196612, 458758, 4, 131076, 458758, 4, 131077, 458758, 4, 196613, 458758, 4, 327685, 458758, 4, 393221, 458758, 4, 458757, 262150, 3, 524293, 262150, 5, 524294, 262150, 5, 458758, 262150, 3, 393222, 458758, 4, 327686, 458758, 4, 196614, 458758, 4, 131078, 458758, 4, 524296, 262150, 5, 458760, 262150, 3, 393224, 458758, 4, 327688, 458758, 4, 196616, 196614, 4, 131080, 196614, 3, 65544, 196614, 5, 262144, 458758, 4, 262145, 458758, 4, 262146, 196614, 4, 262147, 327686, 4, 262148, 458758, 4, 262149, 458758, 4, 262150, 458758, 4, 262151, 458758, 4, 262152, 196614, 5, 9, 262150, 4, 65545, 262150, 5, 131081, 262150, 3, 196617, 262150, 4, 262153, 262150, 5, 327689, 458758, 4, 524297, 262150, 5, 458761, 262150, 3, 393225, 458758, 4, 524288, 262150, 5, 589824, 458758, 4, 655360, 458758, 4, 720896, 851974, 3, 589825, 458758, 4, 655361, 458758, 4, 720897, 851974, 3, 589826, 458758, 4, 655362, 458758, 4, 720898, 851974, 3, 589827, 458758, 4, 655363, 458758, 4, 720899, 851974, 3, 589828, 458758, 4, 655364, 458758, 4, 720900, 851974, 3, 589829, 458758, 4, 655365, 458758, 4, 720901, 851974, 3, 589830, 458758, 4, 655366, 458758, 4, 720902, 851974, 3, 589831, 458758, 4, 720903, 851974, 3, 589832, 458758, 4, 655368, 458758, 4, 720904, 851974, 3, 589833, 458758, 4, 655369, 458758, 4, 720905, 851974, 3, 655367, 458758, 4)
+script = ExtResource("4_funon")
+
+[node name="Bounce" parent="." instance=ExtResource("5_60kh8")]
+visible = false
+z_index = 10
+position = Vector2(90, 176)
+collision_mask = 1
+
+[node name="Paddle" parent="." instance=ExtResource("6_exu6s")]
+visible = false
+position = Vector2(26, 141)
+
+[node name="Boundry" type="Node" parent="."]
+
+[node name="Bottom" type="StaticBody2D" parent="Boundry"]
+position = Vector2(207, 192)
+collision_layer = 7
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundry/Bottom"]
+shape = SubResource("RectangleShape2D_tt1wn")
+
+[node name="Top" type="StaticBody2D" parent="Boundry"]
+position = Vector2(240, -1)
+rotation = 3.14159
+collision_layer = 7
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundry/Top"]
+shape = SubResource("RectangleShape2D_8ckrt")
+
+[node name="Left" type="StaticBody2D" parent="Boundry"]
+position = Vector2(-1, 50)
+collision_layer = 7
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundry/Left"]
+shape = SubResource("RectangleShape2D_cooa0")
+
+[node name="Right" type="StaticBody2D" parent="Boundry"]
+position = Vector2(160, 80)
+collision_layer = 7
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundry/Right"]
+shape = SubResource("RectangleShape2D_suj45")
+
+[node name="Truck" type="Node2D" parent="."]
+position = Vector2(81, 178)
+
+[node name="LittleRedTruck" parent="." instance=ExtResource("7_ff3fb")]
+position = Vector2(80, 176)

@@ -1,12 +1,15 @@
 extends LumberjackActor
 
-var velocity = Vector2.UP * speed * -1
+var velocity = Vector2.UP * speed
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func pregame_physics_process(_delta):
+	visible = true
+
 func game_physics_process(delta):
 	if "Chopping" in $AnimationPlayer.current_animation:
 		if $AnimationPlayer.is_playing ( ):
 			return
+		
 	if position.distance_squared_to(Target.position) < 2:
 		game_scene.bounce_count = 0
 		queue_free()
@@ -27,13 +30,19 @@ func game_physics_process(delta):
 			if "Paddle" == collision.get_collider().name and velocity.y < 0:
 				print("Ignore bouncing off the bottom")
 			else:
+				print("Bouncing off " + collision.get_collider().name)
+				var collision_direction = collision.get_normal()
 				# Reflect the velocity using the collision information
-				velocity = velocity.bounce(collision.get_normal())
-				if velocity.y > 0: # going down
-					velocity = speed * position.direction_to(Target.position)
+				velocity = velocity.bounce(collision_direction)
+
+				if velocity.y > 0:
+					if "TreeBody" == collision.get_collider().name: # going down
+						velocity = speed * position.direction_to(Target.position)
+
 				elif velocity.y > -20:
 					# Sharp left and rights with no vertical change is boring
 					velocity.y = -20
+
 				if "TreeBody" == collision.get_collider().name:
 					$AnimationPlayer.play("Chopping-Up")
 					return

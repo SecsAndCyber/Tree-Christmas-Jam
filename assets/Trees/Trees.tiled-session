@@ -3,12 +3,27 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "Tiles-All.tmx",
     "expandedProjectPaths": [
+        "."
     ],
     "fileStates": {
+        "ForestGround.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
         "GroundPath.tsx": {
-            "dynamicWrapping": false
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Tiles-All.tmx": {
+            "scale": 3,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 127.83333333333333,
+                "y": 97.66666666666666
+            }
         },
         "TreeMap.tmx": {
             "scale": 1.5496875,
@@ -19,19 +34,31 @@
             }
         },
         "Trees.tsx": {
-            "dynamicWrapping": true
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         }
     },
-    "last.imagePath": "D:/development/godot/Tree-Christmas-Jam/assets/Trees",
+    "last.imagePath": "D:/assets/Tiles/Topdown Tileset Forest_",
     "map.height": 6,
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 16,
     "map.tileWidth": 16,
     "map.width": 6,
     "openFiles": [
+        "Trees.tsx",
+        "TreeMap.tmx",
+        "GroundPath.tsx",
+        "Tiles-All.tmx",
+        "ForestGround.tsx"
     ],
     "project": "Trees.tiled-project",
     "recentFiles": [
+        "Trees.tsx",
+        "TreeMap.tmx",
+        "GroundPath.tsx",
+        "ForestGround.tsx",
+        "Tiles-All.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {

@@ -5,8 +5,9 @@ var velocity = 0
 @onready var pinned_position = position.y
 
 func pregame_physics_process(_delta):
-	position.x = Bounce.position.x - 25
+	position.x = Bounce.position.x - min(Bounce.position.x/2, 25)
 	position.y = Bounce.position.y
+	pass 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func game_physics_process(delta):
 	if not $AnimationPlayer.is_playing():

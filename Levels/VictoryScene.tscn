@@ -117,9 +117,5 @@ offset_left = 4.0
 offset_top = 48.0
 offset_right = 171.0
 offset_bottom = 175.0
-text = "Congratulations!
-
-Merry
-Christmas
-Jam!"
+text = "Congratulations!"
 horizontal_alignment = 1

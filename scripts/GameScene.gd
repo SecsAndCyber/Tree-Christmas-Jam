@@ -17,4 +17,4 @@ func _process(_delta):
 			get_tree().change_scene_to_packed(next_level)
 		else:
 			# Sad exit
-			get_tree().change_scene_to_file("res://Levels/MenuScreen.tscn")
+			get_tree().reload_current_scene()
